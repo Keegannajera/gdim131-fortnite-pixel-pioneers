@@ -1,7 +1,7 @@
 ---
 title: "Final Project"
 format: html
-authors: Keegan Rodriguez Najera, , 
+authors: Keegan Rodriguez Najera,
 ---
 (PUT YOUR NAMES ^)
 
@@ -34,12 +34,8 @@ fortnite |>
 glimpse(fortnite)
 ```
 
-## RQ 
 
-mental state = elminnation
-
-
-### ELIMATION BASED ON MENTAL STATE
+### Eliminations based on Mental State
 
 ```{r}
 fortnite |> 
@@ -58,7 +54,7 @@ fortnite |>
   labs(x = "Mental State", y = "Eliminations", fill = "Mental State")
 ```
 
-### Players Accuracy and Headshot 
+### Players Accuracy and Headshot
 
 ```{r}
 fortnite <- 
@@ -85,6 +81,7 @@ fortnite |>
   theme (plot.title = element_text (hjust = 0.5)) +
   labs(x = "Head Shots", y = "Accuracy", color = "Mental State")
 ```
+
 
 ```{r}
 fortnite |> 
