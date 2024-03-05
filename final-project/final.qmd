@@ -1,0 +1,18 @@
+---
+title: "Final Project"
+format: html
+authors: Keegan Rodriguez Najera, , 
+---
+(PUT YOUR NAMES ^)
+
+```{r}
+library(tidyverse)
+
+
+fortnite <- read_csv(here::here("data/FortniteStatistics.csv"))
+```
+
+```{r}
+glimpse(fortnite)
+```
+
