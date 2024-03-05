@@ -7,9 +7,20 @@ authors: Keegan Rodriguez Najera, ,
 
 ```{r}
 library(tidyverse)
+library(janitor)
 
 
-fortnite <- read_csv(here::here("data/FortniteStatistics.csv"))
+og_fortnite <- read_csv(here::here("data/FortniteStatistics.csv"))
+```
+
+```{r}
+glimpse(og_fortnite)
+```
+
+## Data Cleaning/Wrangling
+
+```{r}
+fortnite <- clean_names(og_fortnite)
 ```
 
 ```{r}
