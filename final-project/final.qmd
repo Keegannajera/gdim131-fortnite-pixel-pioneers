@@ -24,6 +24,13 @@ fortnite <- clean_names(og_fortnite)
 ```
 
 ```{r}
+fortnite <-
+fortnite |> 
+  select(mental_state, eliminations, accuracy, head_shots, 
+         time_of_day, hits, placed)
+```
+
+```{r}
 glimpse(fortnite)
 ```
 
