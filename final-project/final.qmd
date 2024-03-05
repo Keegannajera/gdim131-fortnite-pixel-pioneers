@@ -34,3 +34,102 @@ fortnite |>
 glimpse(fortnite)
 ```
 
+## RQ 
+
+mental state = elminnation
+
+
+### ELIMATION BASED ON MENTAL STATE
+
+```{r}
+fortnite |> 
+  ggplot(aes(x = mental_state,
+             y = eliminations, 
+             fill = mental_state)) +
+ geom_boxplot() +
+  theme_light() +
+  theme(legend.key.size = unit(1, 'cm'), #change legend key size
+        legend.key.height = unit(1, 'cm'), #change legend key height
+        legend.key.width = unit(1, 'cm'), #change legend key width
+        legend.title = element_text(size = 15), #change legend title font size
+        legend.text = element_text(size = 10)) +
+  ggtitle("Eliminations Report") +
+  theme (plot.title = element_text (hjust = 0.5)) +
+  labs(x = "Mental State", y = "Eliminations", fill = "Mental State")
+```
+
+### Players Accuracy and Headshot 
+
+```{r}
+fortnite <- 
+  fortnite |> 
+  mutate(accuracy = gsub("%", "", accuracy))
+```
+
+```{r}
+fortnite <- 
+  fortnite |> 
+  mutate(accuracy = as.numeric(accuracy))
+```
+
+
+```{r}
+fortnite |> 
+  ggplot(aes(x = head_shots,
+             y = accuracy,
+             color = mental_state)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = lm) +
+  theme_light() +
+  ggtitle("Game Performance") +
+  theme (plot.title = element_text (hjust = 0.5)) +
+  labs(x = "Head Shots", y = "Accuracy", color = "Mental State")
+```
+
+```{r}
+fortnite |> 
+  ggplot(aes(x = accuracy,
+             y = hits,
+             color = mental_state)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = lm) +
+  theme_light() +
+  ggtitle("Game Performance") +
+  theme (plot.title = element_text (hjust = 0.5)) +
+  labs(x = "Accuracy", y = "Hits", color = "Mental State")
+```
+
+```{r}
+fortnite |> 
+  ggplot(aes(x = mental_state,
+             y = placed, 
+             fill = mental_state)) +
+ geom_boxplot() +
+  theme_light() +
+  theme(legend.key.size = unit(1, 'cm'), #change legend key size
+        legend.key.height = unit(1, 'cm'), #change legend key height
+        legend.key.width = unit(1, 'cm'), #change legend key width
+        legend.title = element_text(size = 15), #change legend title font size
+        legend.text = element_text(size = 10)) +
+  ggtitle("Eliminations Report") +
+  theme (plot.title = element_text (hjust = 0.5)) +
+  labs(x = "Mental State", y = "Placement", fill = "Mental State")
+```
+
+```{r}
+count(fortnite, placed)
+```
+
+```{r}
+fortnite |> 
+  ggplot(aes(x = eliminations,
+             y = placed,
+             color = mental_state)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = lm) +
+  theme_light() +
+  ggtitle("Game Performance") +
+  theme (plot.title = element_text (hjust = 0.5)) +
+  labs(x = "Eliminations", y = "Placement", color = "Mental State")
+```
+
